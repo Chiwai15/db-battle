@@ -1,6 +1,6 @@
 # Universal Benchmarking Platform Design
 
-## 🔧 Project Overview
+## Project Overview
 
 A full-stack, extensible open-source benchmarking platform with the following characteristics:
 
@@ -20,7 +20,7 @@ A full-stack, extensible open-source benchmarking platform with the following ch
 
 ---
 
-## 🧠 Key Concepts & Architecture
+## Key Concepts & Architecture
 
 ### 1. **Service-Level Design (Go, Rust, Python, Java)**
 Each language service implements:
@@ -50,7 +50,7 @@ React web UI that lets users:
 
 ---
 
-## 🚀 Phase 1 Goals
+## Phase 1 Goals
 
 - [ ] Define `benchmark.proto` shared contract
 - [ ] Build Python + Postgres microservice using FastAPI + grpcio
@@ -64,7 +64,7 @@ React web UI that lets users:
 
 ---
 
-## 🚭 Long-term Vision
+## Long-term Vision
 
 - Unified UI for multi-language benchmark testing
 - Easy plugin system for adding new languages and databases
