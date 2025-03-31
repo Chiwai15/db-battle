@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package benchmark;
+
+option go_package = "benchmarkpb";
+option java_multiple_files = true;
+
+enum Language {
+  LANGUAGE_UNKNOWN = 0;
+  PYTHON = 1;
+  GO = 2;
+  RUST = 3;
+  JAVA = 4;
+}
+
+enum DatabaseType {
+  DB_UNKNOWN = 0;
+  MYSQL = 1;
+  POSTGRESQL = 2;
+  MONGODB = 3;
+  CASSANDRA = 4;
+  SCYLLADB = 5;
+}
+
+enum OperationType {
+  UNKNOWN = 0;
+  CREATE = 1;
+  READ = 2;
+  UPDATE = 3;
+  DELETE = 4;
+}
+
+message BenchmarkRequest {
+  Language language = 1;
+  DatabaseType database = 2;
+  OperationType operation = 3;
+  int32 payload_size_bytes = 4;
+  int32 concurrency = 5;
+  int32 num_operations = 6;
+}
+
+message BenchmarkResult {
+  Language language = 1;
+  DatabaseType database = 2;
+  OperationType operation = 3;
+  int32 total_operations = 4;
+  double avg_latency_ms = 5;
+  double throughput_ops = 6;
+  double cpu_percent = 7;
+  double memory_mb = 8;
+  string timestamp = 9;
+}
+
+service BenchmarkService {
+  rpc RunBenchmark(BenchmarkRequest) returns (BenchmarkResult);
+}
